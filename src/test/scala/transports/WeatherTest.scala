@@ -1,5 +1,0 @@
-package transports
-
-class WeatherTest {
-
-}

@@ -11,20 +11,23 @@ class Airport(var hangar:ListBuffer[Plane]) {
     hangarCapacity = capacity
   }
 
-  def permitLanding(plane: Plane): Unit ={
+  def permitLanding(plane: Plane, weather: Weather): Unit ={
+
     if(hangar contains plane) {
       throw new Error("Plane has already landed!")
     }
     if(hangar.length.>=(hangarCapacity)) {
       throw new Error("Hangar is full!")
     }
+    plane.land()
     hangar += plane
   }
-  @throws[Error]("if the file doesn't exist")
-  def permitTakeoff(plane: Plane): Unit ={
+
+  def permitTakeoff(plane: Plane, weather: Weather): Unit ={
     if(!(hangar contains plane)) {
       throw new Error("Plane not in hangar!")
     }
+    plane.takeOff()
     hangar -= plane
   }
 }
