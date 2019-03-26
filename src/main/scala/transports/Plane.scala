@@ -1,6 +1,7 @@
 package transports
 
-class Plane (var model: String){
+class Plane (){
+
   var flyingStatus = true
 
   def land(): Unit ={

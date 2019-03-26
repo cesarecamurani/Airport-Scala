@@ -3,23 +3,23 @@ package transports
 import org.scalatest._
 import org.scalatest.Matchers._
 
-class PlaneTest extends FunSuite {
+class PlaneSpec extends FlatSpec {
 
-  var airbus = new Plane("Airbus")
+  var airbus = new Plane()
 
   def assert(assertion: Assertion): Any = 0
 
-  test("Plane.land should change flying status to false") {
+  it should "Plane.land should change flying status to false" in {
     airbus.land()
     assert(airbus.flyingStatus should equal (false))
   }
 
-  test("Plane.takeOff should change flying status to true again") {
+  it should "Plane.takeOff should change flying status to true again" in {
     airbus.takeOff()
     assert(airbus.flyingStatus should equal (true))
   }
 
-  test("Plane.takeOff should throw an error if plane not in hangar") {
+  it should "Plane.takeOff should throw an error if plane not in hangar" in {
     airbus.land()
     airbus.takeOff()
     assertThrows[Error] { airbus.takeOff() }
