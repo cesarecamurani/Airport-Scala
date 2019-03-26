@@ -13,6 +13,11 @@ class AirportTest extends FunSuite {
 
   def assert(assertion: Assertion): Any = 0
 
+  test("Airport.setCapacity change the hangar capacity"){
+    gatwick.setCapacity(15)
+    assert(gatwick.hangarCapacity equals 15)
+  }
+
   test("Airport.permitLanding add a plane to the Hangar") {
     gatwick.permitLanding(boeing)
     assert(gatwick.hangar should contain(boeing))
@@ -25,7 +30,7 @@ class AirportTest extends FunSuite {
 
   test("Airport.permitLanding should throw an error if Hangar is full") {
     var a = 0;
-    for( a <- 1 to gatwick.capacity){
+    for( a <- 1 to gatwick.hangarCapacity){
       gatwick.permitLanding(boeing)
     }
     assertThrows[Error] { gatwick.permitLanding(boeing) }
