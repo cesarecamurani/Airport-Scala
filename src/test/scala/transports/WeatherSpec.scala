@@ -1,6 +1,7 @@
 package transports
 
 import org.scalatest.FlatSpec
+import scala.util.Random
 
 class WeatherSpec extends FlatSpec {
 

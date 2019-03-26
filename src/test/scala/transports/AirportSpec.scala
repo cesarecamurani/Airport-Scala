@@ -20,16 +20,19 @@ class AirportSpec extends FlatSpec {
   }
 
   it should "Airport.permitLanding add a plane to the Hangar" in {
+    today.currentWeather = "Sunny"
     gatwick.permitLanding(boeing, today)
     assert(gatwick.hangar should contain(boeing))
   }
 
   it should "Airport.permitTakeoff remove a plane from the Hangar" in {
+    today.currentWeather = "Sunny"
     gatwick.permitTakeoff(boeing, today)
     assert(gatwick.hangar shouldNot contain(boeing))
   }
 
   it should "Airport.permitLanding should throw an error if Hangar is full" in {
+    today.currentWeather = "Sunny"
     var a = 0;
     for( a <- 1 to gatwick.hangarCapacity){
       gatwick.permitLanding(new Plane(), today)
@@ -38,6 +41,7 @@ class AirportSpec extends FlatSpec {
   }
 
   it should "Airport.permitTakeoff should throw an error if plane is not in Hangar" in {
+    today.currentWeather = "Sunny"
     gatwick.setCapacity(20)
     gatwick.permitLanding(boeing, today)
     gatwick.permitTakeoff(boeing, today)
@@ -45,6 +49,7 @@ class AirportSpec extends FlatSpec {
   }
 
   it should "Airport.permitLanding should throw an error if plane is already in Hangar" in {
+    today.currentWeather = "Sunny"
     gatwick.permitLanding(boeing, today)
     assertThrows[Error] { gatwick.permitLanding(boeing, today) }
   }

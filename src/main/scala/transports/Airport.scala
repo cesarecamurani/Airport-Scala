@@ -1,7 +1,6 @@
 package transports
 
 import scala.collection.mutable.ListBuffer
-import scala.util.control._
 
 class Airport(var hangar:ListBuffer[Plane]) {
 
