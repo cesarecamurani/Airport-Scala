@@ -2,8 +2,9 @@ package transports
 
 import scala.collection.mutable.ListBuffer
 
-class Airport(var hangar:ListBuffer[Plane]) {
+class Airport() {
 
+  var hangar = new ListBuffer[Plane]
   var hangarCapacity = 10
 
   def setCapacity(capacity: Int): Unit ={
