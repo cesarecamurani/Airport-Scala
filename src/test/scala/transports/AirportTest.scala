@@ -22,4 +22,12 @@ class AirportTest extends FunSuite {
     gatwick.permitTakeoff(boeing)
     assert(gatwick.hangar shouldNot contain(boeing))
   }
+
+  test("Airport.permitLanding should throw an error if Hangar is full") {
+    var a = 0;
+    for( a <- 1 to gatwick.capacity){
+      gatwick.permitLanding(boeing)
+    }
+    assertThrows[Error] { gatwick.permitLanding(boeing) }
+  }
 }
