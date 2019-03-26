@@ -1,0 +1,6 @@
+.idea/
+project/
+target/
+*.iml
+*.xml
+*.sbt

@@ -1,0 +1,5 @@
+package transports
+
+class Weather {
+
+}
