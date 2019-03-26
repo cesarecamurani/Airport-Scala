@@ -1,5 +1,3 @@
 package transports
 
-class Plane {
-
-}
+class Plane (val model: String){}
