@@ -1,3 +1,9 @@
 package transports
 
-class Plane (val model: String){}
+class Plane (var model: String){
+  var flyingStatus = true
+
+  def land(): Unit ={
+    flyingStatus = false
+  }
+}
