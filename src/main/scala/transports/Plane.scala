@@ -8,6 +8,9 @@ class Plane (var model: String){
   }
 
   def takeOff(): Unit ={
+    if(flyingStatus equals true){
+      throw new Error("Plane's already flying!")
+    }
     flyingStatus = true
   }
 }
