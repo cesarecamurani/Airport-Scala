@@ -36,4 +36,9 @@ class AirportTest extends FunSuite {
     gatwick.permitTakeoff(boeing)
     assertThrows[Error] { gatwick.permitTakeoff(boeing) }
   }
+
+  test("Airport.permitLanding should throw an error if plane is already in Hangar") {
+    gatwick.permitLanding(boeing)
+    assertThrows[Error] { gatwick.permitLanding(boeing) }
+  }
 }
