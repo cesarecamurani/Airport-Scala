@@ -48,4 +48,14 @@ class AirportSpec extends FlatSpec {
     gatwick.permitLanding(boeing, today)
     assertThrows[Error] { gatwick.permitLanding(boeing, today) }
   }
+
+  it should "Airport.permitLanding should throw an error if weather is Stormy" in {
+    today.currentWeather = "Stormy"
+    assertThrows[Error] { gatwick.permitLanding(boeing, today) }
+  }
+
+  it should "Airport.permitTakeoff should throw an error if weather is Stormy" in {
+    today.currentWeather = "Stormy"
+    assertThrows[Error] { gatwick.permitTakeoff(boeing, today) }
+  }
 }

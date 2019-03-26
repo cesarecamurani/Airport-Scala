@@ -12,7 +12,9 @@ class Airport(var hangar:ListBuffer[Plane]) {
   }
 
   def permitLanding(plane: Plane, weather: Weather): Unit ={
-
+    if(weather.currentWeather equals "Stormy"){
+      throw new Error("Landing not allowed when Stormy!")
+    }
     if(hangar contains plane) {
       throw new Error("Plane has already landed!")
     }
@@ -24,6 +26,9 @@ class Airport(var hangar:ListBuffer[Plane]) {
   }
 
   def permitTakeoff(plane: Plane, weather: Weather): Unit ={
+    if(weather.currentWeather equals "Stormy"){
+      throw new Error("TakeOff not allowed when Stormy!")
+    }
     if(!(hangar contains plane)) {
       throw new Error("Plane not in hangar!")
     }
