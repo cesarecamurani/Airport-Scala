@@ -14,6 +14,9 @@ class Airport(var hangar:ListBuffer[Plane]) {
   }
 
   def permitTakeoff(plane: Plane): Unit ={
+    if(!(hangar contains plane)) {
+      throw new Error("Plane not in hangar!")
+    }
     hangar -= plane
   }
 }
