@@ -6,4 +6,8 @@ class Plane (var model: String){
   def land(): Unit ={
     flyingStatus = false
   }
+
+  def takeOff(): Unit ={
+    flyingStatus = true
+  }
 }

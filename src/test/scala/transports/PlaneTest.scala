@@ -13,4 +13,9 @@ class PlaneTest extends FunSuite {
     airbus.land()
     assert(airbus.flyingStatus should equal (false))
   }
+
+  test("Plane.takeOff should change flying status to true again ") {
+    airbus.takeOff()
+    assert(airbus.flyingStatus should equal (true))
+  }
 }
